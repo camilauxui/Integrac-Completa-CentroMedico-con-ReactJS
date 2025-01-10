@@ -27,3 +27,48 @@
     border-radius: 80px;  
     border: 2px solid #2472bc;   
 }
+
+.reload-button {  
+    margin-top: 20px;  
+    padding: 10px 15px;  
+    background-color: #007bff;  
+    color: white;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+}  
+
+.reload-button:hover {  
+    background-color: #0056b3;  
+}
+
+
+.doctor-list-container {  
+    display: flex;               /* Usar flexbox para el contenedor */  
+    flex-direction: column;      /* Organizar elementos en columna */  
+    align-items: center;         /* Centrar horizontalmente */  
+    justify-content: center;      /* Centrar verticalmente */  
+    min-height: 90vh;          /* Ocupar al menos el 100% de la altura de la pantalla */  
+}  
+
+.error-message {  
+    display: flex;               /* Usa flexbox para alinear elementos */  
+    flex-direction: column;      /* Coloca elementos uno debajo del otro */  
+    align-items: center;         /* Centra elementos horizontalmente */  
+    justify-content: center;      /* Centra elementos verticalmente */  
+    margin: 20px 0;             /* Espacio arriba y abajo */  
+}  
+
+.retry-button {  
+    margin-top: 10px;           
+    padding: 10px 15px;  
+    background-color: #dc3545;  
+    color: white;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+}  
+
+.retry-button:hover {  
+    background-color: #c82333;   
+}
