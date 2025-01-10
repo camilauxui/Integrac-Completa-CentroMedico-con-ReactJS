@@ -50,7 +50,9 @@ Aunque Axios tiene muchas características útiles, incluyendo un mejor manejo d
 **Añadi un Botón:** que, al hacer clic, recargue la lista de doctores desde la API.
 **Funcionalidad de Recarga:** Cuando se haga clic en el botón, se llamará a la función que carga los doctores.
 **Función loadDoctors:** La función que carga los doctores ahora se puede llamar tanto al montarse el componente como al hacer clic en el botón. Ahora también resetea el estado de error cada vez que se intenta cargar los doctores.
-**Estado de Carga y Manejo de Errores:** Durante la recarga, el estado de carga se establece y si hay errores previos, se reinicia.
+
+## Estado de Carga y Manejo de Errores
+ Durante la recarga, el estado de carga se establece y si hay errores previos, se reinicia.
 
 # 4. Manejo de Errores en Peticiones Asíncronas
 - Implementa una estrategia de manejo de errores cuando la API falle o no responda.
@@ -60,12 +62,14 @@ Aunque Axios tiene muchas características útiles, incluyendo un mejor manejo d
 
 **Manejo de Errores:**
 Si ocurre un error en la petición (ya sea que la API falle o no responda), se captura y se actualiza el estado de error mediante setError() para mostrar un mensaje adecuado en la interfaz de usuario.
+
 **Mostrar Mensaje de Error:**
 Si hay un error al cargar los doctores, se muestra un mensaje al usuario indicando que no se pudieron cargar los doctores.
+
 **Botón para Intentar de Nuevo:**
 Se agrega un nuevo botón "Presiona para intentar nuevamente la carga" que permite al usuario hacer clic para volver a intentar cargar los doctores. Este botón llama a la misma función loadDoctors.
 
-# Optimización del Rendimiento al Omitir Efectos en useEffect 
+# 5 . Optimización del Rendimiento al Omitir Efectos en useEffect 
 - Implementa una optimización en useEffect para evitar que las peticiones se realicen
 múltiples veces innecesariamente. Asegúrate de que la petición se realice solo cuando
 el componente se monte o cuando haya un cambio relevante (por ejemplo, al hacer clic
@@ -73,11 +77,12 @@ en el botón para recargar los datos de doctores).
 
 ## Cambios Realizados
 **Dependencias en useEffect:**
-Cambié la línea del useEffect para que ahora sólo haga llamado a loadDoctors cuando el componente se monte, utilizando [] como dependencia. Esto evita que la función se ejecute múltiples veces innecesariamente cuando cambia el estado del componente.
-Con esta modificación, el rendimiento de tu componente DoctorList está optimizado, asegurando que las solicitudes a la API se realicen solo cuando sea necesario.
+Cambié la línea del useEffect para que ahora sólo haga llamado "a "loadDoctors" cuando el componente se monte, utilizando [] como dependencia. 
+Esto evita que la función se ejecute múltiples veces innecesariamente cuando cambia el estado del componente.
+Con esta modificación, el rendimiento del componente DoctorList está optimizado, asegurando que las solicitudes a la API se realicen solo cuando sea necesario.
 
-**Llamada a loadDoctors en el Click:**
+**Llamada a "loadDoctors" en el Click:**
 
-Cuando el usuario hace clic en el botón "Recargar Doctores", se llama a la función loadDoctors, lo que permite recargar los datos solo cuando es necesario.
+Cuando el usuario hace clic en el botón "Recargar Doctores", se llama a la función "loadDoctors", lo que permite recargar los datos solo cuando es necesario.
 
 **El estado loading y error** se gestionan adecuadamente para proporcionar retroalimentación al usuario durante la carga y en caso de un error.
