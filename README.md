@@ -1,51 +1,44 @@
 # Centro Médico  
 
 **Contexto:**
-En este ejercicio práctico, se aplicará todo lo aprendido sobre ReactJS para crear
-un sistema completo para el Centro Médico. Implementación de componentes reutilizables, optimización de rendimiento, y interacciones con datos a través de APIs. Todas las vistas del sistema del hospital (Home, Servicios, Equipo Médico, Citas) deberán integrar
-componentes avanzados y técnicas de optimización de ReactJS.
+Implementar el consumo de una API para obtener y
+mostrar datos del sistema del hospital, como la información de doctores o servicios médicos.
+Utilizando useEffect y useState, se espera que realicen peticiones asíncronas, gestionen el
+estado y manejen los errores de manera eficiente. Podrán utilizar Fetch API o Axios según su
+preferencia.
 
-# 1. Implementación de Vistas Complejas con ReactJS
-**- Vista Principal (Home):** Incluye una lista de servicios destacados y una sección
-con información del hospital.
-**- Vista del Equipo Médico:** Muestra los perfiles de doctores utilizando
-componentes DoctorCard para cada miembro del equipo, permitiendo filtrar
-por especialidad.
-**- Vista de Citas:** Implementa un formulario para agendar citas con validaciones y
-uso de Hooks (useState, useEffect).
+ # 1. Implementación de Peticiones con useEffect y useState
+## Explicación de los Cambios
+**Actualizar fetch:**
+Cambié la URL dentro de fetch para que apunte a la API externa: https://mocki.io/v1/3e709d3c-d526-49a0-b882-525a5af0b5bb.
+Esto ahora traerá los datos de doctores desde esa API en lugar de un archivo JSON local y se muestra en las card de los doctores.
 
-# 2. Optimización del DOM Virtual y Uso de Fragmentos
-- Usa el DOM Virtual para gestionar eficientemente la actualización de datos en las
-diferentes vistas, asegurando que solo los elementos necesarios se actualicen:
-Uso Correcto del Estado y Eficiencia del DOM Virtual
+**Estado de Errores:**
+Se agregó un estado error para manejar cualquier error en la carga de datos.
+En la implementación del componente `DoctorList`, he incluido un manejo de errores adecuado para garantizar una buena experiencia de usuario:  
 
-**Cargar Datos Iniciales** usando useEffect para cargar los datos de los doctores, esto permite que React solo actualice el componente cuando los datos cambian, en lugar de volver a renderizarlo completamente.
+- Si la respuesta de la red no es satisfactoria (por ejemplo, códigos 404 o 500), se lanza una excepción que es capturada por el bloque `catch`.
 
-**Actualización del Estado utilizando setDoctors** para actualizar el estado del contexto. Esto desencadena una re-renderización de los componentes que están utilizando DoctorContext.
-
-**El uso del componente Profiler** se usa para de medir el tiempo de renderización del componente 
+**Uso de loading:**
+- Un mensaje de carga es mostrado mientras los datos están siendo recuperados, y si ocurre un error, se informa al usuario que no se pudieron cargar los doctores.  
 
 
-**Implementa Fragmentos** (<React.Fragment>) para evitar renderizar div innecesariosen el DOM y mejorar la estructura del código en las diferentes secciones del sistema.
 
-# 3. Uso de Referencias y Callbacks
-En el formulario para agendar una Cita mèdica, se enfoca el primer campo, cumpiendo con "Enfocar automáticamente en un campo de entrada cuando el usuario ingresa a la vista de Citas."
-**Uso de useRef:** referencia para el campo de nombre utilizando useRef. Esto permite acceder directamente al elemento del DOM.
-En el **useEffect** se llama a nameInputRef.current.focus() para enfocar el campo de nombre cuando el componente carga:
 
-useEffect(() => {  
-    // Enfocar el campo de nombre 
-    nameInputRef.current.focus();  
-}, []);
+# Uso de Fetch API o Axios para el Consumo de la API
 
-- **Callbacks** Se usan referencias de callback para gestionar el desplazamiento a diferentes secciones + botòn para subir al inicio de la pàgina, en la vista Home.
+## Elección de Fetch API  
 
-# 4. Manejo de Datos con API REST Simulada
-- **API REST Simulada:** Primero, se crea un archivo JSON local que sirva como API simulada, llamado doctors.json en la carpeta src/data.
-Luego se modifica DoctorList para obtener estos datos utilizando fetch y async/await
+Para la implementación de las solicitudes a la API y la obtención de datos, he elegido utilizar la **Fetch API** en lugar de Axios por las siguientes razones:  
 
-# 5. Optimización de Rendimiento y Uso de Profiler 
-- Usa Profiler para identificar posibles problemas de rendimiento y optimiza la renderización de componentes que manejan grandes volúmenes de datos, como la lista
-de doctores o servicios.
-# 6. Comprobación de Tipos con PropTypes 
-- Implementa PropTypes en todos los componentes para verificar los tipos de datos y asegurar que los valores pasados como props son válidos, evitando errores en la aplicación.
+1. **Integración Nativa**: La Fetch API es una funcionalidad nativa de JavaScript, lo que significa que no se requiere instalar bibliotecas externas. Esto simplifica la gestión de dependencias en el proyecto.  
+
+2. **Sintaxis Simple**: La Fetch API ofrece una sintaxis más sencilla y moderna que facilita la comprensión del código y hace que sea más fácil realizar solicitudes asíncronas.  
+
+3. **Promesas**: La Fetch API devuelve promesas, lo que se alinea bien con el uso del async/await en el código, proporcionando un manejo legible de las solicitudes asíncronas.  
+
+4. **Flexibilidad**: La Fetch API brinda una gran flexibilidad para manejar diferentes tipos de solicitudes (GET, POST, etc.) y configurar encabezados y otros parámetros.  
+
+### Comparación con Axios  
+
+Aunque Axios tiene muchas características útiles, incluyendo un mejor manejo de respuestas de error y cancelación de solicitudes, para este proyecto en particular, he considerado que Fetch es suficiente y proporciona una buena experiencia sin la sobrecarga de una biblioteca externa.
