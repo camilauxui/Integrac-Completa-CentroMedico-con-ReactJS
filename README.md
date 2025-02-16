@@ -46,7 +46,7 @@ const handleChange = (e) => {
 ✅ El estado *confirmation* almacena temporalmente los datos de la cita agendada para mostrarlos en la interfaz.
 
 ## *Manejo del estado de autenticación*
-En el componente *AuthProvider*, se está utilizando *useStateP para manejar:
+En el componente *AuthProvider*, se está utilizando *useState* para manejar:
 
 ✅ El estado de autenticación (isAuthenticated):* Este estado indica si el usuario está autenticado o no.
 
