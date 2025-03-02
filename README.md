@@ -36,27 +36,31 @@ con los criterios de PWA (instalabilidad, funcionamiento offline y rendimiento).
 PWA.
 _________________________________________________________________________________
 
-✅ USUARIOS PARA LOGIN
+## USUARIOS PARA LOGIN
 Puedes usar cualquiera de estos usuarios para iniciar sesión.
 
 ✅ username: usuario1
 
-password: password1
+✅ password: password1
+_______________________________________________________________________________
 
 name: Usuario Test
 
 ✅ username: admin
 
-password: password2
+✅ password: password2
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+### Captura instalador PWA
+
+
 ![Captura](https://github.com/user-attachments/assets/2026a0de-796d-4e4d-89ef-a03bd2142ca0)
 
-name: Administrador
 
 
 
 
-![Captura instalador](http://localhost:5173/src/assets/image.png)  
+
+
