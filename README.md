@@ -49,6 +49,11 @@ name: Usuario Test
 
 password: password2
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+![Captura](https://github.com/user-attachments/assets/2026a0de-796d-4e4d-89ef-a03bd2142ca0)
+
 name: Administrador
 
 
